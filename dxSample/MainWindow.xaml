@@ -1,0 +1,55 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                 xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+                 xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                 xmlns:dxsample="clr-namespace:dxSample"
+                 xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+                 x:Class="dxSample.MainWindow"
+                 Title="MainWindow"
+                 DataContext="{dxmvvm:ViewModelSource Type=dxsample:ViewModel}"
+                 Height="350"
+                 Width="525">
+    <DockPanel>
+        <dxr:RibbonControl>
+            <dxr:RibbonControl.ApplicationMenu>
+                <dxr:BackstageViewControl>
+                    <dxr:BackstageTabItem Content="Workspace">
+                        <dxr:BackstageTabItem.ControlPane>
+                            <DockPanel>
+                                <dxb:GalleryControl DockPanel.Dock="Left" Width="100">
+                                    <dxb:Gallery ColCount="1" 
+                                                 IsGroupCaptionVisible="False"
+                                                 IsItemCaptionVisible="True"
+                                                 IsItemDescriptionVisible="True"
+                                                 AllowFilter="False"
+                                                 ItemContentHorizontalAlignment="Stretch">
+                                        <dxb:GalleryItemGroup>
+                                            <dxb:GalleryItem Caption="Open..."
+                                                             Command="{Binding OpenWorkspaceCommand}"
+                                                             Glyph="{dx:DXImageOffice2013 Image='Open_16x16.png'}"/>
+                                        </dxb:GalleryItemGroup>
+                                    </dxb:Gallery>
+                                </dxb:GalleryControl>
+                                <dxb:GalleryControl>
+                                    <dxb:Gallery ColCount="1" 
+                                                 IsGroupCaptionVisible="True"
+                                                 IsItemCaptionVisible="True"
+                                                 IsItemDescriptionVisible="True"
+                                                 AllowFilter="False"
+                                                 ItemContentHorizontalAlignment="Stretch">
+                                        <dxb:GalleryItemGroup Caption="Recently Used">
+                                            <dxb:GalleryItem Caption="Test" Description="C:\..." />
+                                        </dxb:GalleryItemGroup>
+                                    </dxb:Gallery>
+                                </dxb:GalleryControl>
+                            </DockPanel>
+                        </dxr:BackstageTabItem.ControlPane>
+                    </dxr:BackstageTabItem>
+                    <dxr:BackstageSeparatorItem />
+                    <dxr:BackstageButtonItem Content="Close" />
+                </dxr:BackstageViewControl>
+            </dxr:RibbonControl.ApplicationMenu>
+        </dxr:RibbonControl>
+    </DockPanel>
+</dx:ThemedWindow>
